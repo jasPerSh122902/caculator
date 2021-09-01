@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 namespace caculator
@@ -8,9 +8,14 @@ namespace caculator
     {
         public int number1 = 0;
         public int number2 = 0;
-        public string input = Console.ReadLine();
+        public int result = 0;
+        string input = "";
+       public float inputvalue = 0;
+        public string inputRecieved = Console.ReadLine();
         public int Add(int number1, int number2)
         {
+
+            //the adding process
             Console.ReadLine();
             return number1 += number2;
 
@@ -25,69 +30,72 @@ namespace caculator
         public float divide(int number1, int number2)
         {
             Console.ReadLine();
-            return number1 %= number2;
+            return result = number1 %= number2;
         }
 
         public int subtract(int number1, int number2)
         {
             Console.ReadLine();
-            return number1 -= number2;
+            return result = number1 -= number2;
         }
         public void Run()
         {
             Console.WriteLine("caculations");
             Console.WriteLine("write +, -, *, %_Write the word");
             Console.ReadLine();
-            if (input == "plus" || input == "subtract" || input == "multipy" || input == "divide")
+            if(!float.TryParse(input, out inputvalue))
             {
-                if(input == "plus")
+                if (inputRecieved == "plus" || inputRecieved == "subtract" || inputRecieved == "multipy" || inputRecieved == "divide")
                 {
-                    
-                    Add(0, 0);
-                    Console.ReadLine();
-                    Console.WriteLine();
-                    Run();
-                }
+                    if (inputRecieved == "plus" || inputRecieved == "+")
+                    {
 
-                if(input == "subtract")
-                {
-                    
-                    subtract(0, 0);
-                    Console.ReadLine();
-                    Console.WriteLine();
-                    Run();
-                }
+                        Add(0, 0);
+                        Console.ReadLine();
+                        Console.WriteLine("product = ", result);
+                        Run();
+                    }
 
-                if(input == "multiply")
-                {
-                    
-                    multiply(0, 0);
-                    Console.ReadLine();
-                    Console.WriteLine();
-                    Run();
-                }
+                    else if (inputRecieved == "subtract" || inputRecieved == "-")
+                    {
 
-                if(input == "divide")
-                {
-                    
-                    divide(0, 0);
-                    Console.ReadLine();
-                    Console.WriteLine();
-                    Run();
-                }
+                        subtract(0, 0);
+                        Console.ReadLine();
+                        Console.WriteLine();
+                        Run();
+                    }
 
-                else
-                {
-                    Console.ReadLine();
-                    Console.ReadKey();
-                    Console.WriteLine("error");
-                    Run();
+                    else if (inputRecieved == "multiply" || inputRecieved == "*")
+                    {
+
+                        multiply(0, 0);
+                        Console.ReadLine();
+                        Console.WriteLine();
+                        Run();
+                    }
+
+                    else if (inputRecieved == "divide" || inputRecieved == "%")
+                    {
+
+                        divide(0, 0);
+                        Console.ReadLine();
+                        Console.WriteLine();
+                        Run();
+                    }
+
+                    else
+                    {
+                        Console.ReadLine();
+                        Console.ReadKey();
+                        Console.WriteLine("error");
+                        Run();
+                    }
                 }
             }
+            
         }
     }
 }
-
 
 
 
